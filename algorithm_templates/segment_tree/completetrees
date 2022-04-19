@@ -1,0 +1,57 @@
+Complete tree
+
+           1
+        /     \
+      2          3
+     / \       /  \
+   4    5     6     7
+  / \  / \   /  \  / \
+ 8  9 10 11 12 13 14 15 
+
+
+Segment tree
+
+ s0+s1+s2+s3+s4+s5+s6+s7
+       /         \
+ s0+s1+s2+s3 s4+s5+s6+s7
+    /   \       /   \
+ s0+s1 s2+s3 s4+s5 s6+s7
+  / \   / \   / \   / \
+ s0 s1 s2 s3 s4 s5 s6 s7
+
+
+to replace s5 by t5 change one node at each level.
+
+ s0+s1+s2+s3+s4+t5+s6+s7
+       /         \
+ s0+s1+s2+s3 s4+t5+s6+s7
+    /   \       /   \
+ s0+s1 s2+s3 s4+t5 s6+s7
+  / \   / \   / \   / \
+ s0 s1 s2 s3 s4 t5 s6 s7
+
+
+To do segsum(3,8) = s3+s4+s5+s6+s7
+
+         |           |
+ s0+s1+s2+s3+s4+s5+s6+s7
+       / |       \   |
+ s0+s1+s2+s3 s4+s5+s6+s7
+    /   \|      /   \|
+ s0+s1 s2+s3 s4+s5 s6+s7
+  / \   /|\   /  \  /|\
+ s0 s1 s2|s3 s4 s5 s6|s7
+         |           |
+
+
+To deal with n not a power of 2
+
+     s0+s1+s2+s3+s4
+       /         \
+ s0+s1+s2+s3     s4
+    /   \       /   \
+ s0+s1 s2+s3   s4    0
+  / \   / \   / \   / \
+ s0 s1 s2 s3 s4  0  0  0
+
+
